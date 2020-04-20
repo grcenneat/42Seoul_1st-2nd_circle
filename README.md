@@ -1,1 +1,3 @@
-# 42Seoulnew
+# 42Seoul
+1st Circle
+Libft
