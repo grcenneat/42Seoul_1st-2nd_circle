@@ -14,7 +14,6 @@ int	main()
 //*line이 선언된 상태로 get_next_line 함수로 넘어감
 
 	fd = open("text.txt", O_RDONLY);
-	
 	while ((ret = (get_next_line(fd, &line)) > 0))
 	{
 		printf("%s\n", line);
@@ -22,6 +21,7 @@ int	main()
 	}
 	printf("%s\n", line);
 	free(line);
+
 	close(fd);
 	return 0;
 }
