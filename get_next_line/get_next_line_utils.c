@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 22:47:55 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/08 23:32:09 by marvin           ###   ########.fr       */
+/*   Updated: 2020/06/09 05:13:26 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		res[i] = s[i + start];
 		i++;
 	}
+	res[i] = '\0';
 	return (res);
 }
 
