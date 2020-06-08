@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 22:47:55 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/04 23:07:47 by hjung            ###   ########.fr       */
+/*   Updated: 2020/06/08 23:32:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ size_t	ft_strlen(const char *str)
 	int len;
 
 	len = 0;
+	if (!str)
+		return (0);
 	while (str[len] != '\0')
 	{
 		len++;
@@ -84,17 +86,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	while (s1[i] != '\0')
-	{
-		res[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		res[i] = s2[j];
-		i++;
-		j++;
-	}
+	if (s1 != NULL)
+		while (s1[i] != '\0')
+		{
+			res[i] = s1[i];
+			i++;
+		}
+	if (s2 != NULL)
+		while (s2[j] != '\0')
+		{
+			res[i] = s2[j];
+			i++;
+			j++;
+		}
 	res[i] = '\0';
 	return (res);
 }

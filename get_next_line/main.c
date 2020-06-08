@@ -20,7 +20,8 @@ int	main()
 		printf("%s\n", line);
 		free(line);
 	}
-
+	printf("%s\n", line);
+	free(line);
 	close(fd);
 	return 0;
 }
