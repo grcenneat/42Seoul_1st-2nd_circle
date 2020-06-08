@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 14:24:48 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/09 06:25:22 by marvin           ###   ########.fr       */
+/*   Updated: 2020/06/09 07:38:02 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		get_next_line(int fd, char **line)
 	else if (*bckup[fd] != '\0')
 	{
 		*line = ft_strdup(bckup[fd]);
+		free(bckup[fd]);
 		*bckup[fd] = '\0';
 	}
 	return (0);
