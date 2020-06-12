@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 14:24:48 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/13 00:49:21 by hjung            ###   ########.fr       */
+/*   Updated: 2020/06/13 01:13:15 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		get_next_line(int fd, char **line)
 	while ((rd_size = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[rd_size] = '\0';
-		bckup[fd] = ft_strjoin(bckup[fd], buff);
+		bckup[fd] = gnl_strjoin(bckup[fd], buff);
 		i = chk_nl_exist(bckup[fd]);
 		if (i >= 0)
 			return (ret_line(&bckup[fd], line, i));

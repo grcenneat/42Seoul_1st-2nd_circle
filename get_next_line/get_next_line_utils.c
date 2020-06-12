@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 22:47:55 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/13 00:51:05 by hjung            ###   ########.fr       */
+/*   Updated: 2020/06/13 01:15:04 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (res);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	int		i;
@@ -71,13 +71,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1)
+		return (ft_strdup(s2));
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (s1 != NULL)
-		while (s1[i] != '\0')
-		{
-			res[i] = s1[i];
-			i++;
-		}
+	while (s1[i] != '\0')
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	free(s1);
 	if (s2 != NULL)
 		while (s2[j] != '\0')
 		{
