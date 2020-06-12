@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 14:24:48 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/12 23:19:59 by marvin           ###   ########.fr       */
+/*   Updated: 2020/06/13 00:49:21 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,11 @@ int		ret_rest(char **bckup, char **line)
 
 	if (bckup == 0)
 	{
-		*line=ft_strdup("");
+		*line = ft_strdup("");
 		return (1);
 	}
 	if (*bckup && (i = chk_nl_exist(*bckup)) >= 0)
-	{
-		ret_line(bckup, line, i);
-		return (0);
-	}
+		return (ret_line(bckup, line, i));
 	else if (*bckup[0] != '\0')
 	{
 		*line = ft_strdup(*bckup);
@@ -58,6 +55,7 @@ int		ret_rest(char **bckup, char **line)
 		*bckup = 0;
 		return (0);
 	}
+	*line = ft_strdup("");
 	return (0);
 }
 
@@ -68,7 +66,7 @@ int		get_next_line(int fd, char **line)
 	char		buff[BUFFER_SIZE + 1];
 	static char	*bckup[OPEN_MAX];
 
-	if ((fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
+	if ((fd < 0) || !line || (BUFFER_SIZE <= 0))
 		return (-1);
 	while ((rd_size = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
@@ -76,7 +74,9 @@ int		get_next_line(int fd, char **line)
 		bckup[fd] = ft_strjoin(bckup[fd], buff);
 		i = chk_nl_exist(bckup[fd]);
 		if (i >= 0)
-			return (ret_line(&bckup[fd], line, i));		
+			return (ret_line(&bckup[fd], line, i));
 	}
+	if (rd_size < 0)
+		return (-1);
 	return (ret_rest(&bckup[fd], line));
 }
