@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 14:24:48 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/13 01:13:15 by hjung            ###   ########.fr       */
+/*   Updated: 2020/06/14 04:45:50 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int		ret_rest(char **bckup, char **line)
 {
 	int			i;
 
-	if (bckup == 0)
+	if (*bckup == 0)
 	{
 		*line = ft_strdup("");
-		return (1);
+		return (0);
 	}
 	if (*bckup && (i = chk_nl_exist(*bckup)) >= 0)
 		return (ret_line(bckup, line, i));
