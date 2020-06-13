@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 14:24:48 by hjung             #+#    #+#             */
-/*   Updated: 2020/06/14 04:45:50 by hjung            ###   ########.fr       */
+/*   Updated: 2020/06/14 06:36:20 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int		ret_rest(char **bckup, char **line)
 		return (0);
 	}
 	*line = ft_strdup("");
+	free(*bckup);
+	*bckup = 0;
 	return (0);
 }
 
