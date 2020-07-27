@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 
 int main(){
     char word[10] = "apple";
     printf("%zu\n", ft_strlen(word));
 
-    ft_printf("ccdd", 'a', 'z', 9, 99);
+    ft_printf("dd%-f");
 }

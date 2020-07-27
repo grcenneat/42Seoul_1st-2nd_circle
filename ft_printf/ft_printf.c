@@ -6,40 +6,97 @@
 /*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:13:55 by hysimok           #+#    #+#             */
-/*   Updated: 2020/07/16 02:22:32 by hysimok          ###   ########.fr       */
+/*   Updated: 2020/07/27 11:44:59 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "includes/ft_printf.h"
 
-#include "ft_printf.h"
-
-int ft_printf(const char *input, ...)
+void	ft_init_flags(t_flags *flags)
 {
-    const char  *buff;
-    va_list     ap;
-    int         output_len = 0;
-    int         i, d;
-    char        c;
+	flags->minus = 0;
+	flags->zero = 0;
+	flags->dot = 0;
+	flags->star = 0;
+	flags->width = 0;
+	flags->type = 0;
+}
 
-    i = 0;
-    buff = ft_strdup(input);
-    va_start(ap, input);
-    while (buff[i])
-    {
-        switch(buff[i++])
-        {
-            case 'c':
-                c = va_arg(ap, int);
-                printf("character %c\n", c);
-                break;
-            case 'd':
-                d = va_arg(ap, int);
-                printf("integer %d\n", d);
-                break;
-        }
-    }
-    va_end(ap);
-    free((void *)buff);
-    return(output_len);
+int		ft_flag_parse(const char *fmt, int i, t_flags *flags, va_list ap)
+{
+	while (fmt[i])
+	{
+		/*
+		if (!ft_isdigit(fmt[i]) && !ft_is_in_type_list(fmt[i])
+		&& !ft_is_in_flags_list(fmt[i]))
+			break ;
+			*/
+		if (fmt[i] == '0' && flags->width == 0 && flags->minus == 0)
+			flags->zero = 1;
+			/*
+		if (fmt[i] == '.')
+			i = ft_flag_dot(fmt, i, flags, ap);
+			*/
+		if (fmt[i] == '-')
+			*flags = ft_flag_minus(*flags);
+		/*
+		if (fmt[i] == '*')
+			*flags = ft_flag_width(ap, *flags);
+		if (ft_isdigit(fmt[i]))
+			*flags = ft_flag_digit(fmt[i], *flags);
+		if (ft_is_in_type_list(fmt[i]))
+		{
+			flags->type = fmt[i];
+			break ;
+		}
+		*/
+		i++;
+	}
+	return (i);
+}
+
+int		ft_treat_fmt(const char *fmt, va_list ap)
+{
+	int			i;
+	t_flags		flags;
+	int			char_count;
+
+	i = 0;
+	char_count = 0;
+	while (fmt[i] != '\0')
+	{
+		ft_init_flags(&flags);
+		if (fmt[i] == '%' && fmt[i + 1])
+		{
+			i = ft_flag_parse(fmt, ++i, &flags, ap);
+			/*
+			if (ft_is_in_type_list(fmt[i]))
+				char_count += ft_treatment((char)flags.type, flags, ap);
+			else if (fmt[i])
+				char_count += ft_putchar(fmt[i]);
+				*/
+		}
+		else if (fmt[i] != '%')
+			char_count += ft_putchar(fmt[i]);
+		i++;
+	}
+	return (char_count);
+}
+
+int		ft_printf(const char *input, ...)
+{
+	const char	*fmt;
+	va_list		ap;
+	int			output_len;
+	int			i;
+
+	i = 0;
+	output_len = 0;
+	fmt = ft_strdup(input);
+	va_start(ap, input);
+	output_len += ft_treat_fmt(fmt, ap);
+	va_end(ap);
+	free((void *)fmt);
+	return (output_len);
 }

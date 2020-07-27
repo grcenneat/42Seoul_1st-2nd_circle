@@ -1,1 +1,1 @@
-gcc -Wall -Werror -Wextra ft_printf.o main.c -I./includes -L. -lftprintf -o a.out
+gcc -Wall -Werror -Wextra *.o main.c -I./includes -L. -lftprintf -o a.out

@@ -6,13 +6,15 @@
 #    By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/19 22:35:11 by hysimok           #+#    #+#              #
-#    Updated: 2020/06/22 15:02:46 by hysimok          ###   ########.fr        #
+#    Updated: 2020/07/18 12:34:25 by hysimok          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-FLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c
+# FLAGS = -Wall -Wextra -Werror
+SRC =	ft_printf.c \
+		srcs/ft_treat_flags.c \
+		srcs/ft_putchar.c
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I./includes
 LIBFT = -L./Libft -lft
@@ -23,7 +25,8 @@ $(NAME) : $(OBJ) libft
 	ar rsc $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc $(FLAGS) $(INC_LINK) -c $< -o $(<:.c=.o)
+	#gcc $(FLAGS) $(INC_LINK) -c $< -o $(<:.c=.o)
+	gcc $(INC_LINK) -c $< -o $(<:.c=.o)
 
 # libft compile
 libft :
