@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_sanity_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/27 12:02:24 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/27 12:02:36 by hjung            ###   ########.fr       */
+/*   Created: 2020/07/27 15:32:39 by hjung             #+#    #+#             */
+/*   Updated: 2020/07/27 16:08:27 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_is_in_type_list(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
+			|| c == 'u' || c == 'x' || c == 'X' || c == '%');
+}
+
+int	ft_is_in_flags_list(int c)
+{
+	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*'));
 }

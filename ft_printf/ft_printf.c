@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/20 01:13:55 by hysimok           #+#    #+#             */
-/*   Updated: 2020/07/27 11:44:59 by hysimok          ###   ########.fr       */
+/*   Created: 2020/07/27 11:58:39 by hjung             #+#    #+#             */
+/*   Updated: 2020/07/27 18:31:45 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,24 @@ int		ft_flag_parse(const char *fmt, int i, t_flags *flags, va_list ap)
 {
 	while (fmt[i])
 	{
-		/*
 		if (!ft_isdigit(fmt[i]) && !ft_is_in_type_list(fmt[i])
 		&& !ft_is_in_flags_list(fmt[i]))
 			break ;
-			*/
 		if (fmt[i] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
-			/*
 		if (fmt[i] == '.')
-			i = ft_flag_dot(fmt, i, flags, ap);
-			*/
+			i = ft_flag_dot(fmt, ++i, flags, ap);
 		if (fmt[i] == '-')
 			*flags = ft_flag_minus(*flags);
-		/*
 		if (fmt[i] == '*')
 			*flags = ft_flag_width(ap, *flags);
 		if (ft_isdigit(fmt[i]))
 			*flags = ft_flag_digit(fmt[i], *flags);
-		if (ft_is_in_type_list(fmt[i]))
+		/*if (ft_is_in_type_list(fmt[i]))
 		{
 			flags->type = fmt[i];
 			break ;
-		}
-		*/
+		}*/
 		i++;
 	}
 	return (i);
@@ -75,7 +69,7 @@ int		ft_treat_fmt(const char *fmt, va_list ap)
 				char_count += ft_treatment((char)flags.type, flags, ap);
 			else if (fmt[i])
 				char_count += ft_putchar(fmt[i]);
-				*/
+			*/
 		}
 		else if (fmt[i] != '%')
 			char_count += ft_putchar(fmt[i]);
