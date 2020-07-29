@@ -7,9 +7,9 @@ int		ft_branch_type(int c, t_flags flags, va_list ap)
 	char_count = 0;
 	if (c == 'c')
 		char_count = ft_treat_char(va_arg(ap, int), flags);
-		/*
 	else if (c == 's')
 		char_count = ft_treat_string(va_arg(ap, char *), flags);
+	/*
 	else if (c == 'p')
 		char_count = ft_treat_pointer(va_arg(ap, unsigned long long), flags);
 	else if (c == 'd' || c == 'i')

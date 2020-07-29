@@ -6,7 +6,7 @@
 /*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:58:39 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/29 18:29:29 by hysimok          ###   ########.fr       */
+/*   Updated: 2020/07/30 03:26:55 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_init_flags(t_flags *flags)
 {
 	flags->minus = 0;
 	flags->zero = 0;
-	flags->dot = 0;
+	flags->dot = -1;
 	flags->star = 0;
 	flags->width = 0;
 	flags->type = 0;
