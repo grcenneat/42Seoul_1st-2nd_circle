@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sanity_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 15:32:39 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/27 16:08:27 by hjung            ###   ########.fr       */
+/*   Updated: 2020/07/29 19:03:29 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_is_in_type_list(int c)
 {

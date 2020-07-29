@@ -4,7 +4,12 @@
 
 int main(){
     char word[10] = "apple";
+    int  ret_val;
+
     printf("%zu\n", ft_strlen(word));
 
-    ft_printf("dd%-f");
+    ret_val = ft_printf("dd%3c", 'z');
+    printf("\nreturned value : %d\n", ret_val);
+
+    return 0;
 }

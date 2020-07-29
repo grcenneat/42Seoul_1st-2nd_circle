@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treat_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:02:41 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/27 18:28:38 by hjung            ###   ########.fr       */
+/*   Updated: 2020/07/29 18:22:44 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ t_flags		ft_flag_minus(t_flags flags)
 }
 
 int			ft_flag_dot(const char *fmt, int i,
-			t_flags *flags, va_list args)
+			t_flags *flags, va_list ap)
 {
 	if (fmt[i] == '*')
 	{
-		flags->dot = va_arg(args, int);
+		flags->dot = va_arg(ap, int);
 		i++;
 	}
 	else
@@ -36,10 +36,10 @@ int			ft_flag_dot(const char *fmt, int i,
 	return (i);
 }
 
-t_flags		ft_flag_width(va_list args, t_flags flags)
+t_flags		ft_flag_width(va_list ap, t_flags flags)
 {
 	flags.star = 1;
-	flags.width = va_arg(args, int);
+	flags.width = va_arg(ap, int);
 	if (flags.width < 0)
 	{
 		flags.minus = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:58:39 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/27 18:31:45 by hjung            ###   ########.fr       */
+/*   Updated: 2020/07/29 18:29:29 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int		ft_flag_parse(const char *fmt, int i, t_flags *flags, va_list ap)
 			*flags = ft_flag_width(ap, *flags);
 		if (ft_isdigit(fmt[i]))
 			*flags = ft_flag_digit(fmt[i], *flags);
-		/*if (ft_is_in_type_list(fmt[i]))
+		if (ft_is_in_type_list(fmt[i]))
 		{
 			flags->type = fmt[i];
 			break ;
-		}*/
+		}
 		i++;
 	}
 	return (i);
@@ -64,12 +64,10 @@ int		ft_treat_fmt(const char *fmt, va_list ap)
 		if (fmt[i] == '%' && fmt[i + 1])
 		{
 			i = ft_flag_parse(fmt, ++i, &flags, ap);
-			/*
 			if (ft_is_in_type_list(fmt[i]))
-				char_count += ft_treatment((char)flags.type, flags, ap);
+				char_count += ft_branch_type((char)flags.type, flags, ap);
 			else if (fmt[i])
 				char_count += ft_putchar(fmt[i]);
-			*/
 		}
 		else if (fmt[i] != '%')
 			char_count += ft_putchar(fmt[i]);

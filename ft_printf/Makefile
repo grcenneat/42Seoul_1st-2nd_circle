@@ -6,7 +6,7 @@
 #    By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/19 22:35:11 by hysimok           #+#    #+#              #
-#    Updated: 2020/07/18 12:34:25 by hysimok          ###   ########.fr        #
+#    Updated: 2020/07/29 19:14:24 by hysimok          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,11 @@ NAME = libftprintf.a
 # FLAGS = -Wall -Wextra -Werror
 SRC =	ft_printf.c \
 		srcs/ft_treat_flags.c \
-		srcs/ft_putchar.c
+		srcs/ft_putchar.c \
+		srcs/ft_sanity_check.c \
+		srcs/ft_branch_type.c \
+		srcs/ft_treat_char.c \
+		srcs/ft_treat_width.c
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I./includes
 LIBFT = -L./Libft -lft
