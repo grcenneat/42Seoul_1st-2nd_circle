@@ -6,7 +6,7 @@
 /*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:22:15 by hjung             #+#    #+#             */
-/*   Updated: 2020/07/30 03:54:04 by hysimok          ###   ########.fr       */
+/*   Updated: 2020/07/31 19:19:18 by hysimok          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@ int					ft_branch_type(int c, t_flags flags, va_list ap);
 int					ft_treat_char(char c, t_flags flags);
 int					ft_putstrprec(char *str, int precision);
 int					ft_treat_string(char *str, t_flags flags);
+int					ft_treat_pointer(unsigned long long ull, t_flags flags);
 
 //utility
 int					ft_putchar(int c);
+char				*ft_str_tolower(char *str);
 
 int					ft_is_in_type_list(int c);
 int					ft_is_in_flags_list(int c);
+char				*ft_ull_base(unsigned long long ull, int base);
 
 #endif
