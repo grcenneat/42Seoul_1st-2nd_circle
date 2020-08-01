@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_branch_type.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/01 14:01:23 by hjung             #+#    #+#             */
+/*   Updated: 2020/08/01 14:06:34 by hjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 int		ft_branch_type(int c, t_flags flags, va_list ap)
@@ -11,9 +23,9 @@ int		ft_branch_type(int c, t_flags flags, va_list ap)
 		char_count = ft_treat_string(va_arg(ap, char *), flags);
 	else if (c == 'p')
 		char_count = ft_treat_pointer(va_arg(ap, unsigned long long), flags);
-	/*
 	else if (c == 'd' || c == 'i')
 		char_count = ft_treat_int(va_arg(ap, int), flags);
+	/*
 	else if (c == 'u')
 		char_count += ft_treat_uint((unsigned int)va_arg(ap, unsigned int),
 		flags);
