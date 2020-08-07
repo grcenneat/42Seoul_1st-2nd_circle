@@ -6,7 +6,7 @@
 #    By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/19 22:35:11 by hysimok           #+#    #+#              #
-#    Updated: 2020/07/31 19:13:24 by hysimok          ###   ########.fr        #
+#    Updated: 2020/08/07 14:34:56 by hysimok          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ SRC =	ft_printf.c \
 		srcs/ft_treat_chrstr.c \
 		srcs/ft_treat_width.c \
 		srcs/ft_treat_pointer.c \
-		srcs/ft_ull_base.c
+		srcs/ft_ull_base.c \
+		srcs/ft_treat_int.c \
+		srcs/ft_treat_uint.c\
+		srcs/ft_u_itoa.c
+
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I./includes
 LIBFT = -L./Libft -lft
@@ -28,7 +32,7 @@ LIBFT = -L./Libft -lft
 all : $(NAME)
 $(NAME) : $(OBJ) libft
 	cp Libft/libft.a ./$(NAME)
-	ar rsc $(NAME) $(OBJ)
+	ar -rsc $(NAME) $(OBJ)
 
 %.o: %.c
 	#gcc $(FLAGS) $(INC_LINK) -c $< -o $(<:.c=.o)
