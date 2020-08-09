@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treat_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/10 00:47:43 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/10 00:48:03 by hjung            ###   ########.fr       */
+/*   Created: 2020/08/09 23:06:34 by hjung             #+#    #+#             */
+/*   Updated: 2020/08/10 02:57:36 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_in_put_part_int(char *d_i, int save_i, t_flags flags)
+static int	ft_in_put_part_int(char *d_i, long save_i, t_flags flags)
 {
 	int char_count;
 
@@ -25,7 +25,7 @@ static int	ft_in_put_part_int(char *d_i, int save_i, t_flags flags)
 	return (char_count);
 }
 
-static int	ft_put_part_int(char *d_i, int save_i, t_flags flags)
+static int	ft_put_part_int(char *d_i, long save_i, t_flags flags)
 {
 	int char_count;
 
@@ -46,10 +46,10 @@ static int	ft_put_part_int(char *d_i, int save_i, t_flags flags)
 	return (char_count);
 }
 
-int			ft_treat_int(int i, t_flags flags)
+int			ft_treat_int(long i, t_flags flags)
 {
 	char	*d_i;
-	int		save_i;
+	long	save_i;
 	int		char_count;
 
 	save_i = i;
@@ -68,7 +68,7 @@ int			ft_treat_int(int i, t_flags flags)
 		flags.width--;
 		char_count++;
 	}
-	d_i = ft_itoa(i);
+	d_i = ft_l_itoa(i);
 	char_count += ft_put_part_int(d_i, save_i, flags);
 	free(d_i);
 	return (char_count);
