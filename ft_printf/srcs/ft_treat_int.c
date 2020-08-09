@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treat_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 23:06:34 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/10 03:04:13 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/10 03:18:41 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int			ft_treat_int(long i, t_flags flags)
 	}
 	if (i < 0 && (flags.dot >= 0 || flags.zero == 1))
 	{
-		if (flags.zero == 1 && flags.dot == -1)
+		if (flags.zero == 1 && flags.dot < 0)
 			ft_putstrprec("-", 1);
 		i *= -1;
 		flags.zero = 1;
