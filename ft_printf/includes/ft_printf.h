@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:22:15 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/09 22:43:46 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/10 01:50:04 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int					ft_treat_char(char c, t_flags flags);
 int					ft_putstrprec(char *str, int precision);
 int					ft_treat_string(char *str, t_flags flags);
 int					ft_treat_pointer(unsigned long long ull, t_flags flags);
-int					ft_treat_int(int i, t_flags flags);
+int					ft_treat_int(long i, t_flags flags);
 int					ft_treat_uint(unsigned int unsi, t_flags flags);
 int					ft_treat_hexa(unsigned int ui, int lower, t_flags flags);
 int					ft_treat_percent(t_flags flags);
@@ -64,5 +64,6 @@ int					ft_is_in_type_list(int c);
 int					ft_is_in_flags_list(int c);
 char				*ft_ull_base(unsigned long long ull, int base);
 char				*ft_u_itoa(unsigned int n);
+char				*ft_l_itoa(long n);
 
 #endif
