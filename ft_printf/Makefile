@@ -6,7 +6,7 @@
 #    By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/19 22:35:11 by hjung             #+#    #+#              #
-#    Updated: 2020/08/09 20:28:12 by hjung            ###   ########.fr        #
+#    Updated: 2020/08/09 22:36:33 by hjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC =	ft_printf.c \
 		srcs/ft_treat_int.c \
 		srcs/ft_treat_uint.c\
 		srcs/ft_u_itoa.c\
-		srcs/ft_treat_hexa.c
+		srcs/ft_treat_hexa.c\
+		srcs/ft_treat_percent.c
 
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I./includes

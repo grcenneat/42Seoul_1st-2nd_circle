@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:22:15 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/09 20:27:52 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/09 22:43:46 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
-//# include <stdio.h>
 # include "../Libft/libft.h"
 
 # define ERROR -1
@@ -55,6 +54,7 @@ int					ft_treat_pointer(unsigned long long ull, t_flags flags);
 int					ft_treat_int(int i, t_flags flags);
 int					ft_treat_uint(unsigned int unsi, t_flags flags);
 int					ft_treat_hexa(unsigned int ui, int lower, t_flags flags);
+int					ft_treat_percent(t_flags flags);
 
 //utility
 int					ft_putchar(int c);
