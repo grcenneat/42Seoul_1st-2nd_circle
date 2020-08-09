@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 14:01:56 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/10 04:14:02 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/10 04:44:08 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ int			ft_treat_pointer(unsigned long long ull, t_flags flags)
 	char_count = 0;
 	if (ull == 0 && flags.dot == 0)
 	{
+		if (flags.minus == 1)
+			char_count += ft_putstrprec("0x", 2);
 		char_count += ft_treat_width(flags.width, 2, 0);
-		char_count += ft_putstrprec("0x", 2);
+		if (flags.minus == 0)
+			char_count += ft_putstrprec("0x", 2);
 		return (char_count);
 	}
 	pointer = ft_ull_base(ull, 16);

@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 18:39:21 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/09 20:19:05 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/10 05:09:57 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int		ft_put_part_hexa(char *hexa, t_flags flags)
 		flags.width -= flags.dot;
 		char_count += ft_treat_width(flags.width, 0, 0);
 	}
+	else if (flags.minus == 1)
+		char_count += ft_treat_width(flags.width, ft_strlen(hexa), 0);
 	else
 		char_count += ft_treat_width(flags.width,
 		ft_strlen(hexa), flags.zero);
