@@ -6,8 +6,8 @@ int main(){
 
     ft_printf("%0*.*d\n", -2, -2, -12);
     printf("%0*.*d\n", -2, -2, -12);
-    ft_printf("%p\n", NULL);
-    ft_printf("%u\n", 333);
+    ft_printf("%5.p\n", NULL);
+    printf("%5.p\n", NULL);
     ft_printf("%u\n", 0);
     ft_printf("%u\n", 4294967295);
     ft_printf("%u\n", -10);
