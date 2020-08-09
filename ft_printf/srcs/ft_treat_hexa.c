@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treat_uint.c                                    :+:      :+:    :+:   */
+/*   ft_treat_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 14:07:42 by hjung	           #+#    #+#             */
-/*   Updated: 2020/08/09 18:37:15 by hjung            ###   ########.fr       */
+/*   Created: 2020/08/09 18:39:21 by hjung             #+#    #+#             */
+/*   Updated: 2020/08/09 20:19:05 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_in_put_part_uint(char *unsi_int, t_flags flags)
+static int		ft_in_put_part_hexa(char *hexa, t_flags flags)
 {
 	int char_count;
 
 	char_count = 0;
 	if (flags.dot >= 0)
-		char_count += ft_treat_width(flags.dot - 1, ft_strlen(unsi_int) - 1, 1);
-	char_count += ft_putstrprec(unsi_int, ft_strlen(unsi_int));
+		char_count += ft_treat_width(flags.dot - 1, ft_strlen(hexa) - 1, 1);
+	char_count += ft_putstrprec(hexa, ft_strlen(hexa));
 	return (char_count);
 }
 
-static int	ft_put_part_uint(char *unsi_int, t_flags flags)
+static int		ft_put_part_hexa(char *hexa, t_flags flags)
 {
 	int char_count;
 
 	char_count = 0;
 	if (flags.minus == 1)
-		char_count += ft_in_put_part_uint(unsi_int, flags);
-	if (flags.dot >= 0 && (size_t)flags.dot < ft_strlen(unsi_int))
-		flags.dot = ft_strlen(unsi_int);
+		char_count += ft_in_put_part_hexa(hexa, flags);
+	if (flags.dot >= 0 && (size_t)flags.dot < ft_strlen(hexa))
+		flags.dot = ft_strlen(hexa);
 	if (flags.dot >= 0)
 	{
 		flags.width -= flags.dot;
@@ -39,26 +39,29 @@ static int	ft_put_part_uint(char *unsi_int, t_flags flags)
 	}
 	else
 		char_count += ft_treat_width(flags.width,
-		ft_strlen(unsi_int), flags.zero);
+		ft_strlen(hexa), flags.zero);
 	if (flags.minus == 0)
-		char_count += ft_in_put_part_uint(unsi_int, flags);
+		char_count += ft_in_put_part_hexa(hexa, flags);
 	return (char_count);
 }
 
-int			ft_treat_uint(unsigned int unsi, t_flags flags)
+int				ft_treat_hexa(unsigned int ui, int lower, t_flags flags)
 {
-	char	*unsi_int;
+	char	*hexa;
 	int		char_count;
 
 	char_count = 0;
-	unsi = (unsigned int)(4294967295 + 1 + unsi);
-	if (flags.dot == 0 && unsi == 0)
+	ui = (unsigned int)(4294967295 + 1
+				+ ui);
+	if (flags.dot == 0 && ui == 0)
 	{
 		char_count += ft_treat_width(flags.width, 0, 0);
 		return (char_count);
 	}
-	unsi_int = ft_u_itoa(unsi);
-	char_count += ft_put_part_uint(unsi_int, flags);
-	free(unsi_int);
+	hexa = ft_ull_base((unsigned long long)ui, 16);
+	if (lower == 1)
+		hexa = ft_str_tolower(hexa);
+	char_count += ft_put_part_hexa(hexa, flags);
+	free(hexa);
 	return (char_count);
 }

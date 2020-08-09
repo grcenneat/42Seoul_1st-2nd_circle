@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:22:15 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/07 14:40:50 by hysimok          ###   ########.fr       */
+/*   Updated: 2020/08/09 20:27:52 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int					ft_treat_string(char *str, t_flags flags);
 int					ft_treat_pointer(unsigned long long ull, t_flags flags);
 int					ft_treat_int(int i, t_flags flags);
 int					ft_treat_uint(unsigned int unsi, t_flags flags);
+int					ft_treat_hexa(unsigned int ui, int lower, t_flags flags);
 
 //utility
 int					ft_putchar(int c);

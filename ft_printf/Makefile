@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hysimok <hysimok@student.42.fr>            +#+  +:+       +#+         #
+#    By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/06/19 22:35:11 by hysimok           #+#    #+#              #
-#    Updated: 2020/08/07 14:34:56 by hysimok          ###   ########.fr        #
+#    Created: 2020/06/19 22:35:11 by hjung             #+#    #+#              #
+#    Updated: 2020/08/09 20:28:12 by hjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC =	ft_printf.c \
 		srcs/ft_ull_base.c \
 		srcs/ft_treat_int.c \
 		srcs/ft_treat_uint.c\
-		srcs/ft_u_itoa.c
+		srcs/ft_u_itoa.c\
+		srcs/ft_treat_hexa.c
 
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I./includes

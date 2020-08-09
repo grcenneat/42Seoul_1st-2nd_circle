@@ -10,5 +10,7 @@ int main(){
     ft_printf("%u\n", 0);
     ft_printf("%u\n", 4294967295);
     ft_printf("%u\n", -10);
+    ft_printf("%x\n", 15);
+    ft_printf("%X\n", 15);
     return 0;
 }
