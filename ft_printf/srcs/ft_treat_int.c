@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 23:06:34 by hjung             #+#    #+#             */
-/*   Updated: 2020/08/10 02:57:36 by hjung            ###   ########.fr       */
+/*   Updated: 2020/08/10 03:04:13 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static int	ft_put_part_int(char *d_i, long save_i, t_flags flags)
 		flags.width -= flags.dot;
 		char_count += ft_treat_width(flags.width, 0, 0);
 	}
+	else if (flags.dot < 0 && flags.minus == 1)
+		char_count += ft_treat_width(flags.width, ft_strlen(d_i), 0);
 	else
 		char_count += ft_treat_width(flags.width, ft_strlen(d_i), flags.zero);
 	if (flags.minus == 0)
